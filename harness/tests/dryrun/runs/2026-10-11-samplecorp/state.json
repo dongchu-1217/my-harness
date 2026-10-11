@@ -1,0 +1,1 @@
+{"기업명": "샘플컴퍼니", "슬러그": "samplecorp", "단계": "완료", "통과": ["S1", "S2", "S3", "S4", "S5"], "복귀횟수": {"S1": 0, "S2": 0, "S3": 1, "S4": 0, "S5": 0}, "approved": true, "approved_at": "2026-10-11T17:17:14", "approved_cards_hash": "67afc6975cdfe150dc22fab8d9055a19d8581ab41d9a2195699fa6ae4a8816ec", "approved_html_hash": "ca960ca40e54e3614643e7ee16697f4577eec7577bf7e4d2bc9da98615bb19bf"}

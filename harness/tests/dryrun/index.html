@@ -1,0 +1,603 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>프로덕트 디자이너 면접 인덱스</title>
+<style>
+:root{--bg:#fff;--text:#1a1a1a;--sub:#6b7280;--line:#e5e7eb;--soft:#f6f7f9}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0}
+body{
+  font-family:Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  font-size:16px;line-height:1.6;color:var(--text);background:var(--bg);
+  padding-bottom:calc(40px + env(safe-area-inset-bottom));
+}
+button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
+.wrap{max-width:640px;margin:0 auto;padding:0 20px}
+
+header{padding:28px 0 8px}
+h1{margin:0;font-size:28px;letter-spacing:-.02em}
+.search{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding:12px 0 10px}
+.search input{
+  color:var(--text);
+  width:100%;height:52px;border:1.5px solid var(--line);border-radius:14px;
+  padding:0 16px;font:inherit;font-size:17px;background:var(--soft);outline:none;
+}
+.search input:focus{border-color:var(--text);background:#fff}
+.tabs{display:flex;gap:8px;margin-top:10px}
+.tab{flex:1;height:48px;border-radius:12px;background:var(--soft);font-weight:600;font-size:16px;color:var(--sub)}
+.tab.on{background:var(--text);color:#fff}
+
+/* cards */
+.card{scroll-margin-top:150px;border:1.5px solid var(--line);border-radius:18px;margin:14px 0;overflow:hidden;background:#fff}
+.card-head{width:100%;text-align:left;padding:18px;color:#fff;display:flex;align-items:center;gap:12px;min-height:72px}
+.card-head .t{flex:1}
+.card-head .t b{display:block;font-size:19px;letter-spacing:-.01em}
+.card-head .t span{display:block;font-size:15px;opacity:.92;margin-top:2px;line-height:1.45}
+.chev{font-size:18px;transition:transform .2s}
+.card.open .chev{transform:rotate(180deg)}
+.card-body{display:none;padding:6px 18px 20px}
+.card.open .card-body{display:block}
+.sec{margin-top:18px}
+.sec h3{margin:0 0 8px;font-size:13px;color:var(--sub);font-weight:700;letter-spacing:.04em}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:var(--soft);border-radius:999px;padding:6px 12px;font-size:15px}
+ul.plain{margin:0;padding-left:20px}
+ul.plain li{margin:4px 0}
+.kpi{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;margin:0}
+.kpi dt{font-size:14px;font-weight:700;color:var(--sub)}
+.kpi dd{margin:0}
+.retro{margin:0;background:var(--soft);border-radius:12px;padding:12px 14px}
+.step{background:var(--soft);border-radius:12px;padding:10px 14px}
+.step ul{margin-top:4px}
+.arrow{text-align:center;color:var(--sub);line-height:1.5}
+mark{background:#fff2a8;border-radius:3px}
+.ansbox{background:var(--soft);border-radius:12px;padding:12px 14px}
+.ansbox p{margin:0 0 8px}.ansbox p:last-child{margin:0}
+.warn{background:#fdecec;color:#b02a2a;border-radius:12px;padding:12px 14px;font-weight:600}
+
+/* questions */
+.cats{display:flex;gap:8px;overflow-x:auto;padding:4px 0 10px;scrollbar-width:none}
+.cats::-webkit-scrollbar{display:none}
+.cat{flex:none;height:40px;padding:0 14px;border-radius:999px;background:var(--soft);font-size:15px;font-weight:600;color:var(--sub)}
+.cat.on{background:var(--text);color:#fff}
+.block-title{font-size:13px;font-weight:700;color:var(--sub);margin:22px 0 2px;letter-spacing:.04em}
+.qlist{list-style:none;margin:0;padding:0}
+.qitem{display:flex;align-items:center;gap:8px;padding:10px 0;border-top:1px solid var(--line)}
+.qitem:first-child{border-top:0}
+.qitem .qt{flex:1}
+.qcat{display:inline-block;font-size:12px;font-weight:700;color:var(--sub);background:var(--soft);border-radius:6px;padding:1px 8px;margin-bottom:2px}
+.star{width:44px;height:44px;border-radius:12px;font-size:22px;color:#c7cbd1;flex:none}
+.star.on{color:#f5a623}
+.empty{color:var(--sub);text-align:center;padding:48px 0}
+
+.row{display:flex;gap:8px}
+.row button{flex:1;height:56px;border-radius:14px;font-weight:700;font-size:16px;background:var(--soft)}
+.row .primary{background:var(--text);color:#fff}
+
+.cats.sm,.cat.sm{height:34px;font-size:14px;padding:0 12px}
+.seg{display:flex;gap:6px;background:var(--soft);border-radius:12px;padding:4px;margin:8px 0 10px}
+.seg button{flex:1;height:44px;border-radius:9px;font-weight:700;color:var(--sub)}
+.seg button.on{background:#fff;color:var(--text);box-shadow:0 1px 3px rgba(0,0,0,.12)}
+.qitem{align-items:flex-start}
+.qitem .star{margin-top:-4px}
+.meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.pill{height:30px;padding:0 10px;border-radius:999px;border:1px solid var(--line);font-size:13px;font-weight:600;color:var(--sub);background:#fff}
+.pill.lv0{background:#eefaf1;border-color:#cdebd6;color:#1f7a3f}
+.pill.lv1{background:#fff8e1;border-color:#f3e2a6;color:#8a6a00}
+.pill.lv2{background:#fdecec;border-color:#f5c6c6;color:#b02a2a}
+.pill.hot{background:#fff4d6;border-color:#f5d98a;color:#8a5a00}
+.pill.done{background:#eaf2ff;border-color:#c5d8fb;color:#1f4fb4}
+.pill.memo{border-color:var(--text);color:var(--text)}
+.pill.ans{border-color:#2f6fed;color:#2f6fed}
+.pill.del{color:#b02a2a}
+.memoin{color:var(--text);display:block;width:100%;margin-top:8px;border:1.5px solid var(--line);border-radius:12px;padding:10px 12px;font:inherit;font-size:16px;background:var(--soft);resize:vertical}
+.qcat.mine{background:#eaf2ff;color:#1f4fb4;margin-left:4px}
+.addbtn{width:100%;height:48px;border-radius:12px;border:1.5px dashed var(--line);font-weight:600;color:var(--sub);margin:4px 0 8px}
+.addform{border:1.5px solid var(--line);border-radius:16px;padding:14px;margin:4px 0 10px}
+.addform label{display:block;font-size:13px;font-weight:700;color:var(--sub);margin:6px 0 4px}
+.addform textarea,.addform select,.bigsel{color:var(--text);width:100%;border:1.5px solid var(--line);border-radius:12px;padding:10px 12px;font:inherit;font-size:16px;background:#fff}
+.bigsel{height:52px}
+.addform .arow{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.addform .chk{display:flex;align-items:center;gap:8px;font-size:15px;color:var(--text);margin:10px 0}
+.addform .row{margin-top:8px}
+.row{display:flex;gap:8px;margin-top:14px}
+.row button:disabled{opacity:.4}
+.modes{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:4px 0 14px}
+.mode{height:52px;border-radius:12px;background:var(--soft);font-weight:700;color:var(--sub)}
+.mode.on{background:var(--text);color:#fff}
+.progress{height:6px;background:var(--soft);border-radius:3px;overflow:hidden}
+.progress i{display:block;height:100%;background:var(--text)}
+.stepno{font-size:14px;font-weight:700;color:var(--sub);margin:10px 0 6px}
+.live{border:1.5px solid var(--line);border-radius:16px;padding:16px;margin:6px 0}
+.bigq{font-size:21px;font-weight:700;line-height:1.5;letter-spacing:-.01em}
+.livebar{display:flex;align-items:flex-start;gap:6px}
+.livebar .metawrap{flex:1}
+.metawrap,.qitem .qt{min-width:0}
+.follow{padding-left:22px;margin:6px 0}
+.follow li{padding:10px 0;font-size:18px;border-top:1px solid var(--line)}
+.follow li:first-child{border-top:0}
+.bubble{background:#fdecec;border-radius:14px;padding:12px 14px;margin-top:10px;font-weight:600}
+.lbl{display:block;font-size:13px;font-weight:700;color:var(--sub);margin-bottom:4px}
+.ckw{margin:2px 0 6px}
+.rel{display:grid;gap:8px;margin-top:6px}
+.relcard{display:block;width:100%;text-align:left;border:1.5px solid var(--line);border-left-width:5px;border-radius:12px;padding:10px 14px}
+.relcard span{display:block;font-size:14px;color:var(--sub)}
+.empty.small{padding:18px 0}
+.sub{color:var(--sub);margin:6px 0 10px}
+.search input[hidden]{display:none}
+::placeholder{color:var(--sub);opacity:.8}
+#sync[data-bad]{color:#b02a2a;cursor:pointer;text-decoration:underline}
+</style>
+<div class="wrap">
+  <header><h1>프로덕트 디자이너 면접 인덱스</h1><div id="sync" class="sub" style="font-size:13px;margin:2px 0 0"></div></header>
+  <div class="search">
+    <input id="q" type="search" placeholder="검색 (예: 키워드, 질문)" autocomplete="off">
+    <div class="tabs">
+      <button class="tab on" data-tab="cards">카드</button>
+      <button class="tab" data-tab="qs">예상 질문</button>
+    </div>
+  </div>
+  <main id="main"></main>
+</div>
+
+<script>
+/* ---------- 카드 (ME · 역량 · 경험 태그 · 약점 보완) ---------- */
+const CARDS = [
+  {"id": "me", "emoji": "⚪", "color": "#6b7280", "title": "샘플 카드 1", "one": "샘플 한 줄 요약 1", "kw": ["샘플 키워드 1", "샘플 키워드 76", "샘플 키워드 77", "샘플 키워드 78", "샘플 키워드 79", "샘플 키워드 80", "샘플 키워드 81"], "sumTitle": "한 문장 정의", "sum": ["샘플 문장 39", "샘플 문장 40"], "extras": [{"t": "샘플 소제목 1", "items": ["샘플 문장 41"]}, {"t": "샘플 소제목 2", "items": ["샘플 문장 42"]}], "result": ["샘플 문장 43", "샘플 문장 44", "샘플 문장 45"], "qs": ["샘플 질문 1", "샘플 질문 2"]},
+  {"id": "c1", "emoji": "🟦", "color": "#2f6fed", "title": "샘플 카드 2", "one": "샘플 한 줄 요약 2", "kw": ["샘플 키워드 1", "샘플 키워드 82", "샘플 키워드 65", "샘플 키워드 81"], "problem": ["샘플 문장 46"], "sumTitle": "내 사례", "sum": ["샘플 문장 47", "샘플 문장 48"], "extras": [{"t": "샘플 소제목 3", "items": ["샘플 문장 49"]}], "ans": ["샘플 문장 1", "샘플 문장 50", "샘플 문장 51", "샘플 문장 52"], "qsTitle": "예상 꼬리질문", "qs": ["샘플 질문 8", "샘플 질문 41", "샘플 질문 42", "샘플 질문 9"]},
+  {"id": "c2", "emoji": "🟩", "color": "#2a9d5c", "title": "샘플 카드 3", "one": "샘플 한 줄 요약 3", "kw": ["샘플 키워드 83", "샘플 키워드 84", "샘플 키워드 41", "샘플 키워드 85", "샘플 키워드 86"], "problem": ["샘플 문장 53"], "sumTitle": "내 사례", "sum": ["샘플 문장 54", "샘플 문장 55"], "extras": [{"t": "샘플 소제목 4", "items": ["샘플 문장 56", "샘플 문장 57", "샘플 문장 58", "샘플 문장 59"]}], "ans": ["샘플 문장 60", "샘플 문장 61", "샘플 문장 62", "샘플 문장 63"], "qsTitle": "예상 꼬리질문", "qs": ["샘플 질문 12", "샘플 질문 43", "샘플 질문 13", "샘플 질문 14"]},
+  {"id": "c3", "emoji": "🟪", "color": "#8b4fd1", "title": "샘플 카드 4", "one": "샘플 한 줄 요약 4", "kw": ["샘플 키워드 87", "샘플 키워드 88", "샘플 키워드 89", "샘플 키워드 90", "샘플 키워드 91"], "problem": ["샘플 문장 64"], "sumTitle": "내 사례", "sum": ["샘플 문장 65", "샘플 문장 66"], "extras": [{"t": "샘플 소제목 5", "items": ["샘플 문장 67", "샘플 문장 68", "샘플 문장 69"]}], "ans": ["샘플 문장 70", "샘플 문장 71", "샘플 문장 72"], "qsTitle": "예상 꼬리질문", "qs": ["샘플 질문 15", "샘플 질문 16", "샘플 질문 17", "샘플 질문 18"]},
+  {"id": "c4", "emoji": "🟧", "color": "#ee7b1c", "title": "샘플 카드 5", "one": "샘플 한 줄 요약 5", "kw": ["샘플 키워드 74", "샘플 키워드 92", "샘플 키워드 93", "샘플 키워드 94", "샘플 키워드 45"], "problem": ["샘플 문장 73"], "sumTitle": "내 사례", "sum": ["샘플 문장 74", "샘플 문장 75"], "result": ["샘플 문장 43", "샘플 문장 76", "샘플 문장 77"], "ans": ["샘플 문장 78", "샘플 문장 79", "샘플 문장 80", "샘플 문장 81"], "qsTitle": "예상 꼬리질문", "qs": ["샘플 질문 20", "샘플 질문 21", "샘플 질문 44", "샘플 질문 22"]},
+  {"id": "c5", "emoji": "🟥", "color": "#d93f3f", "title": "샘플 카드 6", "one": "샘플 한 줄 요약 6", "kw": ["샘플 키워드 95", "샘플 키워드 71", "샘플 키워드 96", "샘플 키워드 97", "샘플 키워드 73"], "problem": ["샘플 문장 82"], "sumTitle": "내 사례", "sum": ["샘플 문장 83", "샘플 문장 84"], "ans": ["샘플 문장 85", "샘플 문장 86", "샘플 문장 87"], "qsTitle": "예상 꼬리질문", "qs": ["샘플 질문 24", "샘플 질문 25", "샘플 질문 26", "샘플 질문 45"]},
+  {"id": "c6", "emoji": "🟦", "color": "#1e88c9", "title": "샘플 카드 7", "one": "샘플 한 줄 요약 7", "kw": ["샘플 키워드 67", "샘플 키워드 68", "샘플 키워드 63", "샘플 키워드 69", "샘플 키워드 98"], "problem": ["샘플 문장 88"], "sumTitle": "내 사례", "sum": ["샘플 문장 89", "샘플 문장 90", "샘플 문장 91"], "extras": [{"t": "샘플 소제목 6", "items": ["샘플 문장 92", "샘플 문장 93", "샘플 문장 94", "샘플 문장 95", "샘플 문장 96"]}], "ans": ["샘플 문장 32", "샘플 문장 33", "샘플 문장 97", "샘플 문장 98"], "qsTitle": "예상 꼬리질문", "qs": ["샘플 질문 46", "샘플 질문 47", "샘플 질문 31", "샘플 질문 32"]},
+  {"id": "c7", "emoji": "⬛", "color": "#2b2f36", "title": "샘플 카드 8", "one": "샘플 한 줄 요약 8", "kw": ["샘플 키워드 94", "샘플 키워드 99", "샘플 키워드 100", "샘플 키워드 101", "샘플 키워드 102"], "problem": ["샘플 문장 99"], "sumTitle": "내 사례", "sum": ["샘플 문장 100", "샘플 문장 101"], "ans": ["샘플 문장 102", "샘플 문장 103", "샘플 문장 104"], "qsTitle": "예상 꼬리질문", "qs": ["샘플 질문 35", "샘플 질문 36", "샘플 질문 37", "샘플 질문 38"]},
+  {"id": "t1", "emoji": "🟦", "color": "#0f766e", "title": "샘플 카드 9", "one": "샘플 한 줄 요약 9", "kw": ["샘플 키워드 103", "샘플 키워드 104", "샘플 키워드 105", "샘플 키워드 106", "샘플 키워드 107", "샘플 키워드 93", "샘플 키워드 108"], "sumTitle": "연결 역량", "sum": ["샘플 문장 105", "샘플 문장 106", "샘플 문장 107", "샘플 문장 108", "샘플 문장 109", "샘플 문장 110", "샘플 문장 111"], "qsTitle": "사용 가능한 질문", "qs": ["샘플 질문 48", "샘플 질문 49", "샘플 질문 50", "샘플 질문 51", "샘플 질문 52", "샘플 질문 53"]},
+  {"id": "t2", "emoji": "🟩", "color": "#3d8b40", "title": "샘플 카드 10", "one": "샘플 한 줄 요약 10", "kw": ["샘플 키워드 109", "샘플 키워드 41", "샘플 키워드 110", "샘플 키워드 84", "샘플 키워드 76"], "sumTitle": "연결 역량", "sum": ["샘플 문장 112", "샘플 문장 113", "샘플 문장 114", "샘플 문장 115", "샘플 문장 116"], "qsTitle": "사용 가능한 질문", "qs": ["샘플 질문 54", "샘플 질문 55", "샘플 질문 56", "샘플 질문 57"]},
+  {"id": "t3", "emoji": "🟧", "color": "#c2570c", "title": "샘플 카드 11", "one": "샘플 한 줄 요약 11", "kw": ["샘플 키워드 111", "샘플 키워드 112", "샘플 키워드 113", "샘플 키워드 114", "샘플 키워드 115"], "sumTitle": "연결 역량", "sum": ["샘플 문장 117", "샘플 문장 118", "샘플 문장 119", "샘플 문장 120", "샘플 문장 121"], "qsTitle": "사용 가능한 질문", "qs": ["샘플 질문 58", "샘플 질문 59", "샘플 질문 60", "샘플 질문 61"]},
+  {"id": "t4", "emoji": "🟫", "color": "#8a5a3c", "title": "샘플 카드 12", "one": "샘플 한 줄 요약 12", "kw": ["샘플 키워드 54", "샘플 키워드 116", "샘플 키워드 117", "샘플 키워드 118"], "sumTitle": "연결 역량", "sum": ["샘플 문장 122", "샘플 문장 123", "샘플 문장 124", "샘플 문장 125"], "warn": "샘플 문장 126", "qsTitle": "사용 가능한 질문", "qs": ["샘플 질문 62", "샘플 질문 63", "샘플 질문 64"]},
+  {"id": "w1", "emoji": "🟥", "color": "#9a3412", "title": "샘플 카드 13", "one": "샘플 한 줄 요약 13", "kw": ["샘플 키워드 119", "샘플 키워드 120", "샘플 키워드 121", "샘플 키워드 122"], "sumTitle": "보완 포인트", "sum": ["샘플 문장 127", "샘플 문장 44", "샘플 문장 128"], "ans": ["샘플 문장 32", "샘플 문장 33", "샘플 문장 129"], "warn": "샘플 문장 130", "qs": ["샘플 질문 29"]},
+  {"id": "w2", "emoji": "🟥", "color": "#9a3412", "title": "샘플 카드 14", "one": "샘플 한 줄 요약 14", "kw": ["샘플 키워드 43", "샘플 키워드 123", "샘플 키워드 124", "샘플 키워드 125"], "sumTitle": "말할 수 있는 근거", "sum": ["샘플 문장 131", "샘플 문장 132"], "ans": ["샘플 문장 133", "샘플 문장 134"], "warn": "샘플 문장 135", "qs": ["샘플 질문 23"]},
+  {"id": "w3", "emoji": "🟥", "color": "#9a3412", "title": "샘플 카드 15", "one": "샘플 한 줄 요약 15", "kw": ["샘플 키워드 11", "샘플 키워드 12", "샘플 키워드 14", "샘플 키워드 126"], "sumTitle": "말할 순서", "sum": ["샘플 문장 136", "샘플 문장 137", "샘플 문장 138", "샘플 문장 139"], "ans": ["샘플 문장 7", "샘플 문장 8", "샘플 문장 9"], "qs": ["샘플 질문 3"]}
+];
+
+/* ---------- 예상 질문: [질문, 난이도(0 기본/1 꼬리질문/2 심화), 자주 나옴(1), 답변[], 키워드[]] ---------- */
+const QGROUPS = [
+  ["샘플 카테고리 1", [["샘플 질문 1", 0, 1, ["샘플 문장 1", "샘플 문장 2", "샘플 문장 3"], ["샘플 키워드 1", "샘플 키워드 2", "샘플 키워드 3", "샘플 키워드 4", "샘플 키워드 5"]], ["샘플 질문 2", 0, 1, ["샘플 문장 4", "샘플 문장 5", "샘플 문장 6"], ["샘플 키워드 2", "샘플 키워드 6", "샘플 키워드 7", "샘플 키워드 8", "샘플 키워드 9", "샘플 키워드 10"]], ["샘플 질문 3", 1, 1, ["샘플 문장 7", "샘플 문장 8", "샘플 문장 9"], ["샘플 키워드 11", "샘플 키워드 12", "샘플 키워드 13", "샘플 키워드 14", "샘플 키워드 15"]], "샘플 질문 4"]],
+  ["샘플 카테고리 2", [["샘플 질문 5", 0, 1, ["샘플 문장 10", "샘플 문장 11", "샘플 문장 12"], ["샘플 키워드 16", "샘플 키워드 17", "샘플 키워드 18", "샘플 키워드 19", "샘플 키워드 20", "샘플 키워드 21"]], ["샘플 질문 6", 1, 0, ["샘플 문장 13", "샘플 문장 14", "샘플 문장 15"], ["샘플 키워드 22", "샘플 키워드 23", "샘플 키워드 24", "샘플 키워드 25", "샘플 키워드 26"]], ["샘플 질문 7", 2, 0, ["샘플 문장 16", "샘플 문장 17", "샘플 문장 18", "샘플 문장 19"], ["샘플 키워드 27", "샘플 키워드 28", "샘플 키워드 29", "샘플 키워드 30", "샘플 키워드 31"]], ["샘플 질문 8", 1], ["샘플 질문 9", 2]]],
+  ["샘플 카테고리 3", [["샘플 질문 10", 0, 1, ["샘플 문장 20", "샘플 문장 21", "샘플 문장 22"], ["샘플 키워드 32", "샘플 키워드 33", "샘플 키워드 34", "샘플 키워드 35", "샘플 키워드 36", "샘플 키워드 37"]], ["샘플 질문 11", 0, 1, ["샘플 문장 23", "샘플 문장 24", "샘플 문장 25"], ["샘플 키워드 38", "샘플 키워드 39", "샘플 키워드 40", "샘플 키워드 41", "샘플 키워드 36"]], ["샘플 질문 12", 1], ["샘플 질문 13", 2], ["샘플 질문 14", 1]]],
+  ["샘플 카테고리 4", [["샘플 질문 15", 0, 1], ["샘플 질문 16", 2], ["샘플 질문 17", 1], ["샘플 질문 18", 1], "샘플 질문 19"]],
+  ["샘플 카테고리 5", [["샘플 질문 20", 0, 1], ["샘플 질문 21", 1], ["샘플 질문 22", 1], ["샘플 질문 23", 1, 1, ["샘플 문장 26", "샘플 문장 27", "샘플 문장 28"], ["샘플 키워드 42", "샘플 키워드 43", "샘플 키워드 7", "샘플 키워드 44", "샘플 키워드 45", "샘플 키워드 46"]]]],
+  ["샘플 카테고리 6", [["샘플 질문 24", 1], ["샘플 질문 25", 1], ["샘플 질문 26", 1], ["샘플 질문 27", 2, 0, ["샘플 문장 29", "샘플 문장 30", "샘플 문장 31"], ["샘플 키워드 47", "샘플 키워드 48", "샘플 키워드 49", "샘플 키워드 50", "샘플 키워드 51", "샘플 키워드 52"]], "샘플 질문 28"]],
+  ["샘플 카테고리 7", [["샘플 질문 29", 0, 1, ["샘플 문장 32", "샘플 문장 33", "샘플 문장 34", "샘플 문장 35"], ["샘플 키워드 53", "샘플 키워드 54", "샘플 키워드 55", "샘플 키워드 56", "샘플 키워드 57", "샘플 키워드 58"]], ["샘플 질문 30", 2, 0, ["샘플 문장 36", "샘플 문장 37", "샘플 문장 38"], ["샘플 키워드 59", "샘플 키워드 60", "샘플 키워드 61", "샘플 키워드 62", "샘플 키워드 63", "샘플 키워드 64"]], ["샘플 질문 31", 2], ["샘플 질문 32", 2], "샘플 질문 33"]],
+  ["샘플 카테고리 8", [["샘플 질문 34", 0, 1], ["샘플 질문 35", 1], ["샘플 질문 36", 2], ["샘플 질문 37", 2], ["샘플 질문 38", 1]]],
+  ["샘플컴퍼니", [["화면마다 버튼 스타일이 달라 시안 제작에 시간이 오래 걸리던 상황에서, 어떤 방식으로 디자인 시스템을 구축했고 그 결과 무엇이 달라졌는지 설명해 주세요.", 0, 0], ["기존 화면의 반복 요소를 수집할 때 어떤 기준으로 컴포넌트를 묶었나요?", 1, 0], ["시안 제작 시간이 6시간에서 1시간으로 줄었다고 했는데, 어떻게 측정했나요?", 1, 0], ["화면마다 버튼 스타일이 달랐던 문제는 컴포넌트 40개로 정리하면서 어떻게 해소됐나요?", 1, 0], ["기존 화면의 반복 요소를 컴포넌트 40개로 정리하는 과정은 어떤 순서로 진행했나요? 돌아봤을 때 작업 순서에서 아쉬웠던 점이 있다면 무엇인가요?", 0, 0], ["초기에 토큰 설계를 먼저 했어야 했다고 회고했는데, 그렇게 했다면 무엇이 달라졌을까요?", 1, 0], ["컴포넌트 40개로 정리한 것이 시안 제작 시간 6시간에서 1시간으로 이어진 이유는 무엇이라고 보나요?", 1, 0], ["디자인과 개발 사이에 스펙 확인 질문이 잦던 문제를 해결하기 위해 어떤 행동을 했고, 그 결과 QA 이슈에 어떤 변화가 있었나요?", 0, 0], ["컴포넌트별 Property 명세 문서에는 어떤 내용을 담았나요?", 1, 0], ["개발자와 함께 리뷰할 때 의견이 갈린 부분은 어떻게 조율했나요?", 1, 0], ["명세 문서를 갱신할 담당자를 정해야 했다고 회고했는데, 이후 어떻게 개선하겠나요?", 1, 0], ["디자인 시스템 구축 프로젝트에서 본인이 직접 맡은 역할과 의사결정은 무엇이었나요? 같은 문제가 다시 생기면 무엇을 다르게 하겠나요?", 0, 0], ["구축 과정에서 가장 어려웠던 점은 무엇이었나요?", 1, 0], ["화면마다 버튼 스타일이 달랐던 문제의 원인은 어떻게 파악했나요?", 1, 0]]]
+];
+const QS = QGROUPS.flatMap(([cat,list])=>list.map(x=>{ const [text,lv=0,hot=0,ans,kw]=typeof x==='string'?[x]:x; return {cat,text,lv,hot,ans,kw}; }));
+const QCATS = QGROUPS.map(g=>g[0]);
+const DEF = Object.fromEntries(QS.map(q=>[q.text,q]));
+
+/* ---------- 면접 모드 데이터 ---------- */
+const GEN = [
+  ["샘플 라벨 1", "샘플 질문 1"],
+  ["샘플 라벨 2", "샘플 질문 4"],
+  ["샘플 라벨 3", "샘플 질문 5"],
+  ["샘플 라벨 4", "샘플 질문 6"],
+  ["샘플 라벨 5", "샘플 질문 10"],
+  ["샘플 라벨 6", "샘플 질문 11"],
+  ["샘플 라벨 7", "샘플 질문 15"],
+  ["샘플 라벨 8", "샘플 질문 20"],
+  ["샘플 라벨 9", "샘플 질문 27"],
+  ["샘플 라벨 10", "샘플 질문 23"],
+  ["샘플 라벨 11", "샘플 질문 29"],
+  ["샘플 라벨 12", "샘플 질문 38"],
+  ["샘플 라벨 13", "샘플 질문 3"],
+  ["샘플 라벨 14", "샘플 질문 2"]
+];
+const FOLLOW = [
+  "샘플 꼬리 질문 15",
+  "샘플 꼬리 질문 16",
+  "샘플 꼬리 질문 17",
+  "샘플 꼬리 질문 18",
+  "샘플 꼬리 질문 19",
+  "샘플 꼬리 질문 20",
+  "샘플 꼬리 질문 21",
+  "샘플 꼬리 질문 22",
+  "샘플 꼬리 질문 23",
+  "샘플 꼬리 질문 24",
+  "샘플 꼬리 질문 25",
+  "샘플 꼬리 질문 26",
+  "샘플 꼬리 질문 27"
+];
+const FOLLOW_CAT = {
+  "샘플 카테고리 3":["샘플 꼬리 질문 1", "샘플 꼬리 질문 2"],
+  "샘플 카테고리 4":["샘플 꼬리 질문 3", "샘플 꼬리 질문 4"],
+  "샘플 카테고리 5":["샘플 꼬리 질문 5", "샘플 꼬리 질문 6"],
+  "샘플 카테고리 6":["샘플 꼬리 질문 7", "샘플 꼬리 질문 8"],
+  "샘플 카테고리 7":["샘플 꼬리 질문 9", "샘플 꼬리 질문 10"],
+  "샘플 카테고리 8":["샘플 꼬리 질문 11", "샘플 꼬리 질문 12"],
+  "샘플 카테고리 2":["샘플 꼬리 질문 13", "샘플 꼬리 질문 14"]
+};
+const PRESS = [
+  "샘플 압박 질문 1",
+  "샘플 압박 질문 2",
+  "샘플 압박 질문 3",
+  "샘플 압박 질문 4",
+  "샘플 압박 질문 5",
+  "샘플 압박 질문 6",
+  "샘플 압박 질문 7",
+  "샘플 압박 질문 8",
+  "샘플 압박 질문 9",
+  "샘플 압박 질문 10",
+  "샘플 압박 질문 11"
+];
+const COMPANY = {
+  "샘플 기업 A":{"kw": ["샘플 키워드 2", "샘플 키워드 65", "샘플 키워드 8", "샘플 키워드 66"], "qs": ["샘플 질문 2", "샘플 질문 39", "샘플 질문 29", "샘플 질문 40"]},
+  "샘플 기업 B":{"kw": ["샘플 키워드 67", "샘플 키워드 68", "샘플 키워드 69", "샘플 키워드 70"], "qs": ["샘플 질문 30", "샘플 질문 31", "샘플 질문 32", "샘플 질문 33"]},
+  "샘플 기업 C":{"kw": ["샘플 키워드 47", "샘플 키워드 71", "샘플 키워드 72", "샘플 키워드 73"], "qs": ["샘플 질문 24", "샘플 질문 25", "샘플 질문 27", "샘플 질문 26"]},
+  "샘플 기업 D":{"kw": ["샘플 키워드 74", "샘플 키워드 75", "샘플 키워드 7"], "qs": ["샘플 질문 20", "샘플 질문 21", "샘플 질문 14", "샘플 질문 22"]},
+  "샘플컴퍼니":{"kw": ["디자인 시스템 구축 및 운영", "컴포넌트와 디자인 토큰 설계", "디자인-개발 핸드오프 프로세스 개선", "다국어·글로벌 서비스 디자인 대응", "플랫폼 디자인 경력", "디자인 시스템 구축", "데이터 기반 디자인 개선"], "qs": ["화면마다 버튼 스타일이 달라 시안 제작에 시간이 오래 걸리던 상황에서, 어떤 방식으로 디자인 시스템을 구축했고 그 결과 무엇이 달라졌는지 설명해 주세요.", "기존 화면의 반복 요소를 컴포넌트 40개로 정리하는 과정은 어떤 순서로 진행했나요? 돌아봤을 때 작업 순서에서 아쉬웠던 점이 있다면 무엇인가요?", "디자인과 개발 사이에 스펙 확인 질문이 잦던 문제를 해결하기 위해 어떤 행동을 했고, 그 결과 QA 이슈에 어떤 변화가 있었나요?", "디자인 시스템 구축 프로젝트에서 본인이 직접 맡은 역할과 의사결정은 무엇이었나요? 같은 문제가 다시 생기면 무엇을 다르게 하겠나요?"]}
+};
+const LVS = [
+  ["🟢", "기본"],
+  ["🟡", "꼬리질문"],
+  ["🔴", "심화"]
+];
+
+/* ---------- 상태 (LocalStorage) ---------- */
+const KEY='platform-interview-state-v1';
+let S = {favs:[],done:{},memo:{},lv:{},hot:{},custom:[]};
+try{
+  const raw=localStorage.getItem(KEY);
+  if(raw) S=Object.assign(S,JSON.parse(raw));
+}catch(e){}
+const save=()=>{ S._t=Date.now(); try{ localStorage.setItem(KEY,JSON.stringify(S)); }catch(e){} schedulePush(); };
+const persistLocal=()=>{ try{ localStorage.setItem(KEY,JSON.stringify(S)); }catch(e){} };
+const allQs=()=>[...QS,...S.custom.map(c=>({cat:c.cat,text:c.text,custom:true}))];
+const isFav=t=>S.favs.includes(t);
+const getLv=t=>S.lv[t]!==undefined?S.lv[t]:(DEF[t]?DEF[t].lv:0);
+const getHot=t=>S.hot[t]!==undefined?S.hot[t]:(DEF[t]?!!DEF[t].hot:false);
+
+let tab='cards', query='', cat='전체', flt='all', qview='list', imode='general';
+let opened=new Set(), memoOpen=new Set(), ansOpen=new Set(), addOpen=false, delArm='';
+let gi=0, fMain=null, fList=[], pMain=null, pThread=[], cType='샘플 기업 A';
+const UIKEY='platform-interview-ui-v1', tabScroll={cards:0,qs:0};
+try{
+  const u=JSON.parse(localStorage.getItem(UIKEY)||'null');
+  if(u){ ({tab,qview,imode,gi,fMain,fList,pMain,pThread,cType}=Object.assign({tab,qview,imode,gi,fMain,fList,pMain,pThread,cType},u)); }
+  if(!COMPANY[cType]) cType='샘플 기업 A';
+}catch(e){}
+const saveUI=()=>{ try{ localStorage.setItem(UIKEY,JSON.stringify({tab,qview,imode,gi,fMain,fList,pMain,pThread,cType})); }catch(e){} };
+
+/* ---------- 유틸 ---------- */
+const $ = s=>document.querySelector(s);
+const esc = s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const match = s=>!query || s.toLowerCase().includes(query.toLowerCase());
+const hl = s=>{
+  const i = query ? s.toLowerCase().indexOf(query.toLowerCase()) : -1;
+  if(i<0) return esc(s);
+  return esc(s.slice(0,i))+'<mark>'+esc(s.slice(i,i+query.length))+'</mark>'+esc(s.slice(i+query.length));
+};
+const shuffle=a=>{ a=[...a]; for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; };
+const fmtDate=ts=>{ const d=new Date(ts); return (d.getMonth()+1)+'/'+d.getDate(); };
+const starBtn = t=>`<button class="star ${isFav(t)?'on':''}" data-star="${esc(t)}" aria-label="즐겨찾기">${isFav(t)?'★':'☆'}</button>`;
+
+/* 질문마다 붙는 정보: 난이도 · 자주 나옴 · 답변 완료 · 메모 · 답변 예시 */
+function metaRow(t,isCustom){
+  const lv=getLv(t), hot=getHot(t), d=S.done[t], hasMemo=!!(S.memo[t]||'').trim(), k=esc(t);
+  const def=DEF[t], hasAns=!!(def&&def.ans);
+  return `<div class="metawrap"><div class="meta">
+    <button class="pill lv${lv}" data-lv="${k}">${LVS[lv][0]} ${LVS[lv][1]}</button>
+    <button class="pill ${hot?'hot':''}" data-hot="${k}">${hot?'⭐ 자주 나옴':'자주 나옴'}</button>
+    <button class="pill ${d?'done':''}" data-done="${k}">${d?'✅ 답변 완료 · '+fmtDate(d):'답변 전'}</button>
+    ${hasAns?`<button class="pill ans" data-ans="${k}">💬 답변 예시</button>`:''}
+    <button class="pill ${hasMemo?'memo':''}" data-memo="${k}">📝 메모${hasMemo?' •':''}</button>
+    ${isCustom?`<button class="pill del" data-del="${k}">${delArm===t?'정말 삭제':'🗑 삭제'}</button>`:''}
+  </div>${hasAns&&ansOpen.has(t)?`<div class="ansbox" style="margin-top:8px">${def.ans.map(p=>`<p>${esc(p)}</p>`).join('')}${def.kw?`<div class="chips" style="margin-top:8px">${def.kw.map(x=>`<span class="chip">${esc(x)}</span>`).join('')}</div>`:''}</div>`:''}
+  ${memoOpen.has(t)?`<textarea class="memoin" data-memo-in="${k}" rows="3" placeholder="이 질문에서 꼭 말해야 할 키워드">${esc(S.memo[t]||'')}</textarea>`:''}</div>`;
+}
+function qRow(q,showCat){
+  return `<li class="qitem"><div class="qt">${showCat||q.custom?`<span class="qcat">${esc(q.cat)}</span>${q.custom?'<span class="qcat mine">내 질문</span>':''}<br>`:''}${hl(q.text)}${metaRow(q.text,q.custom)}</div>${starBtn(q.text)}</li>`;
+}
+function rr(){
+  const y=scrollY, cs=$('.cats'), x=cs?cs.scrollLeft:0;
+  render(); scrollTo(0,y);
+  const c2=$('.cats'); if(c2) c2.scrollLeft=x;
+}
+
+/* ---------- 카드 탭 ---------- */
+const flat = c=>c.sum.flatMap(s=>typeof s==='string'?[s]:[s.t,...s.sub]);
+const cardMatches = c=>!query || [c.title,c.one,...(c.goal||[]),...(c.kpi||[]).flat(),...c.kw,...(c.problem||[]),...flat(c),...(c.extras||[]).flatMap(x=>[x.t,...x.items]),...(c.result||[]),...(c.retro||[]),...(c.ans||[]),c.warn||'',...c.qs].some(match);
+function renderCard(c){
+  const open = opened.has(c.id) || !!query;
+  const summary = c.flow
+    ? c.sum.map((s,i)=>{ const o=typeof s==='string'?{t:s}:s;
+        return (i?'<div class="arrow">↓</div>':'')+`<div class="step"><b>${hl(o.t)}</b>${o.sub?`<ul class="plain">${o.sub.map(x=>`<li>${hl(x)}</li>`).join('')}</ul>`:''}</div>`; }).join('')
+    : `<ul class="plain">${c.sum.map(s=>`<li>${hl(s)}</li>`).join('')}</ul>`;
+  const list = (title,items)=>`<div class="sec"><h3>${esc(title)}</h3><ul class="plain">${items.map(s=>`<li>${hl(s)}</li>`).join('')}</ul></div>`;
+  return `<section class="card ${open?'open':''}" data-card="${c.id}">
+    <button class="card-head" style="background:${c.color}" data-toggle="${c.id}">
+      <span class="t"><b>${c.emoji} ${hl(c.title)}</b><span>${hl(c.one)}</span></span><span class="chev">▾</span>
+    </button>
+    <div class="card-body">
+      ${c.goal?list('프로젝트 목표',c.goal):''}
+      ${c.kpi?`<div class="sec"><h3>KPI</h3><dl class="kpi">${c.kpi.map(([k,v])=>`<dt>${hl(k)}</dt><dd>${hl(v)}</dd>`).join('')}</dl></div>`:''}
+      <div class="sec"><h3>핵심 키워드</h3><div class="chips">${c.kw.map(k=>`<span class="chip">${hl(k)}</span>`).join('')}</div></div>
+      ${c.problem?list('핵심 메시지',c.problem):''}
+      <div class="sec"><h3>${c.sumTitle||(c.flow?'프로세스':'요약')}</h3>${summary}</div>
+      ${(c.extras||[]).map(x=>list(x.t,x.items)).join('')}
+      ${c.result?list('성과',c.result):''}
+      ${c.ans?`<div class="sec"><h3>면접 답변 예시</h3><div class="ansbox">${c.ans.map(p=>`<p>${hl(p)}</p>`).join('')}</div></div>`:''}
+      ${c.warn?`<div class="sec"><div class="warn">주의 · ${hl(c.warn)}</div></div>`:''}
+      ${list(c.qsTitle||'대표 면접 질문',c.qs)}
+    </div></section>`;
+}
+
+/* ---------- 검색: 관련 카드 / 관련 질문 ---------- */
+const relatedCards = ()=>CARDS.filter(c=>[c.title,c.one,...c.kw,...c.qs].some(match));
+const relatedQs = ()=>allQs().filter(q=>match(q.text)||match(q.cat));
+function relatedCardsBlock(){
+  const cs=relatedCards();
+  if(!query) return '';
+  return `<div class="block-title">관련 카드 (${cs.length})</div>` + (cs.length
+    ? `<div class="rel">${cs.map(c=>`<button class="relcard" data-goto="${c.id}" style="border-color:${c.color}"><b>${c.emoji} ${hl(c.title)}</b><span>${hl(c.one)}</span></button>`).join('')}</div>`
+    : '<div class="empty small">관련 카드가 없어요</div>');
+}
+
+/* ---------- 예상 질문 탭 ---------- */
+const FLT=[['all','전체'],['lv0','🟢 기본'],['lv1','🟡 꼬리질문'],['lv2','🔴 심화'],['hot','⭐ 자주 나옴'],['todo','답변 전']];
+const fpass = q=> flt==='all' || (flt.startsWith('lv') ? getLv(q.text)===+flt[2] : flt==='hot' ? getHot(q.text) : !S.done[q.text]);
+function addForm(){
+  if(!addOpen) return `<button class="addbtn" data-add="open">＋ 질문 추가 (면접에서 받은 질문 저장)</button>`;
+  return `<div class="addform">
+    <label for="aq">받은 질문</label>
+    <textarea id="aq" rows="2" placeholder="면접에서 나온 질문을 그대로 적어주세요"></textarea>
+    <div class="arow">
+      <div><label for="acat">카테고리</label><select id="acat">${[...QCATS,'기타'].map(c=>`<option>${c}</option>`).join('')}</select></div>
+      <div><label for="alv">난이도</label><select id="alv">${LVS.map((l,i)=>`<option value="${i}">${l[0]} ${l[1]}</option>`).join('')}</select></div>
+    </div>
+    <label class="chk"><input type="checkbox" id="ahot"> ⭐ 자주 나오는 질문</label>
+    <div class="row"><button data-add="cancel">취소</button><button class="primary" data-add="save">저장</button></div>
+  </div>`;
+}
+function renderQs(){
+  const seg = `<div class="seg"><button class="${qview==='list'?'on':''}" data-qview="list">질문 목록</button><button class="${qview==='mode'?'on':''}" data-qview="mode">🎤 면접 모드</button></div>`;
+  if(qview==='mode'){ $('#main').innerHTML = seg + renderMode(); return; }
+  const cats=[...QCATS]; S.custom.forEach(c=>{ if(!cats.includes(c.cat)) cats.push(c.cat); });
+  const chips = ['전체','⭐',...cats].map(c=>`<button class="cat ${c===cat?'on':''}" data-cat="${esc(c)}">${c==='⭐'?`⭐ 즐겨찾기${S.favs.length?' ('+S.favs.length+')':''}`:esc(c)}</button>`).join('');
+  const fchips = FLT.map(([k,l])=>`<button class="cat sm ${k===flt?'on':''}" data-flt="${k}">${l}</button>`).join('');
+  let list = relatedQs().filter(fpass);
+  let body;
+  if(cat==='⭐'){
+    list = list.filter(q=>isFav(q.text));
+    body = list.length ? `<ul class="qlist">${list.map(q=>qRow(q,true)).join('')}</ul>`
+      : `<div class="empty">${S.favs.length?'조건에 맞는 질문이 없어요':'⭐를 눌러 자주 나오는 질문을 모아보세요'}</div>`;
+  }else if(cat==='전체'){
+    body = cats.map(c=>{ const g=list.filter(q=>q.cat===c); return g.length?`<div class="block-title">${esc(c)} (${g.length})</div><ul class="qlist">${g.map(q=>qRow(q)).join('')}</ul>`:''; }).join('')
+      || '<div class="empty">조건에 맞는 질문이 없어요</div>';
+  }else{
+    list = list.filter(q=>q.cat===cat);
+    body = list.length?`<ul class="qlist">${list.map(q=>qRow(q)).join('')}</ul>`:'<div class="empty">조건에 맞는 질문이 없어요</div>';
+  }
+  const qHead = query ? `<div class="block-title">질문 (${relatedQs().filter(fpass).length})</div>` : '';
+  $('#main').innerHTML = `${seg}${addForm()}<div class="cats">${chips}</div><div class="cats">${fchips}</div>${relatedCardsBlock()}${qHead}${body}`;
+}
+
+/* ---------- 면접 모드 ---------- */
+function liveQ(t){
+  return `<div class="live"><div class="bigq">${esc(t)}</div><div class="livebar">${metaRow(t,false)}${starBtn(t)}</div></div>`;
+}
+function newFollow(){
+  const q=allQs().find(x=>x.text===fMain); const sp=(q&&FOLLOW_CAT[q.cat])||[];
+  const n=3+Math.floor(Math.random()*3);
+  const pool=shuffle(sp).slice(0,2).concat(shuffle(FOLLOW));
+  fList=[...new Set(pool)].slice(0,n);
+}
+function renderMode(){
+  const modes=[['general','일반 면접'],['follow','꼬리질문'],['press','압박 면접'],['company','주제별']];
+  const sel=`<div class="modes">${modes.map(([k,l])=>`<button class="mode ${k===imode?'on':''}" data-imode="${k}">${l}</button>`).join('')}</div>`;
+  let body='';
+  if(imode==='general'){
+    if(gi>=GEN.length){
+      const n=GEN.filter(g=>S.done[g[1]]).length;
+      body=`<div class="live"><div class="bigq">면접 종료</div><p class="sub">${GEN.length}개 질문 중 ${n}개에 답변 완료 표시를 했어요.</p>
+        <ul class="plain">${GEN.map(g=>`<li>${S.done[g[1]]?'✅':'▫️'} ${esc(g[0])}</li>`).join('')}</ul></div>
+        <div class="row"><button data-gstep="prev">← 이전</button><button class="primary" data-gstep="restart">처음부터</button></div>`;
+    }else{
+      const [label,t]=GEN[gi];
+      body=`<div class="progress"><i style="width:${(gi+1)/GEN.length*100}%"></i></div>
+        <div class="stepno">${gi+1} / ${GEN.length} · ${esc(label)}</div>${liveQ(t)}
+        <div class="row"><button data-gstep="prev" ${gi===0?'disabled':''}>← 이전</button><button class="primary" data-gstep="next">${gi===GEN.length-1?'마치기':'다음 →'}</button></div>`;
+    }
+  }else if(imode==='follow'){
+    const opts=[...QCATS,...new Set(S.custom.map(c=>c.cat).filter(c=>!QCATS.includes(c)))].map(c=>`<optgroup label="${esc(c)}">${allQs().filter(q=>q.cat===c).map(q=>`<option value="${esc(q.text)}" ${q.text===fMain?'selected':''}>${esc(q.text)}</option>`).join('')}</optgroup>`).join('');
+    body=`<label class="lbl" for="fsel">메인 질문</label>
+      <select id="fsel" class="bigsel"><option value="" ${fMain?'':'selected'}>메인 질문을 고르세요</option>${opts}</select>
+      <div class="row"><button data-fact="random">🎲 랜덤 메인 질문</button>${fMain?'<button class="primary" data-fact="reroll">🔁 꼬리질문 다시 뽑기</button>':''}</div>`
+      + (fMain?`<div class="block-title">메인 질문</div>${liveQ(fMain)}<div class="block-title">꼬리질문 (${fList.length})</div><ol class="follow">${fList.map(f=>`<li>${esc(f)}</li>`).join('')}</ol>`:'<div class="empty small">고른 질문에 맞춰 꼬리질문 3~5개가 랜덤으로 나와요</div>');
+  }else if(imode==='press'){
+    if(!pMain) pMain=shuffle(allQs())[0].text;
+    body=`<div class="block-title">면접관 질문</div>${liveQ(pMain)}
+      ${pThread.map(p=>`<div class="bubble">🔥 ${esc(p)}</div>`).join('')}
+      <div class="row"><button data-pact="next">다음 질문 ➡</button><button class="primary" data-pact="rebut">🔥 반박 질문</button></div>`;
+  }else{
+    const c=COMPANY[cType];
+    body=`<div class="cats">${Object.keys(COMPANY).map(k=>`<button class="cat ${k===cType?'on':''}" data-company="${k}">${k}</button>`).join('')}</div>
+      <div class="chips ckw">${c.kw.map(k=>`<span class="chip">${esc(k)}</span>`).join('')}</div>
+      <ul class="qlist">${c.qs.map(t=>`<li class="qitem"><div class="qt">${esc(t)}${metaRow(t,false)}</div>${starBtn(t)}</li>`).join('')}</ul>`;
+  }
+  return sel+body;
+}
+
+function render(){
+  saveUI();
+  $('#q').hidden = tab==='qs' && qview==='mode';
+  if(tab==='qs') return renderQs();
+  const cards = CARDS.filter(cardMatches);
+  let html = cards.map(renderCard).join('');
+  if(query){
+    const qs=relatedQs();
+    html += `<div class="block-title">관련 질문 (${qs.length})</div>` + (qs.length?`<ul class="qlist">${qs.slice(0,12).map(q=>qRow(q,true)).join('')}</ul>${qs.length>12?`<button class="addbtn" data-more="1">질문 ${qs.length}개 모두 보기 →</button>`:''}`:'<div class="empty small">관련 질문이 없어요</div>');
+  }
+  $('#main').innerHTML = html || '<div class="empty">검색 결과가 없어요</div>';
+}
+
+/* ---------- 이벤트 ---------- */
+const toggle=(arr,t)=>{ const i=arr.indexOf(t); i<0?arr.push(t):arr.splice(i,1); };
+function gotoCard(id){
+  tab='cards'; query=''; $('#q').value=''; opened.clear(); opened.add(id);
+  document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('on',x.dataset.tab==='cards'));
+  render();
+  const el=document.querySelector(`[data-card="${id}"]`);
+  if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+}
+document.addEventListener('click',e=>{
+  const g=e.target.closest.bind(e.target), d=(sel,key)=>{ const el=g(sel); return el?el.dataset[key]:null; };
+  let v;
+  if((v=d('[data-toggle]','toggle'))){
+    const card=g('[data-toggle]').parentElement;
+    if(query) card.classList.toggle('open');
+    else{
+      const was=opened.has(v); opened.clear(); if(!was) opened.add(v);
+      document.querySelectorAll('.card').forEach(el=>el.classList.toggle('open',opened.has(el.dataset.card)));
+      if(!was){ const top=card.getBoundingClientRect().top; if(top<150||top>innerHeight*0.6) card.scrollIntoView({behavior:'smooth',block:'start'}); }
+    }
+    return;
+  }
+  if((v=d('[data-goto]','goto'))){ gotoCard(v); return; }
+  if((v=d('[data-star]','star'))){ toggle(S.favs,v); save(); rr(); return; }
+  if((v=d('[data-done]','done'))){ if(S.done[v]) delete S.done[v]; else S.done[v]=Date.now(); save(); rr(); return; }
+  if((v=d('[data-memo]','memo'))){ memoOpen.has(v)?memoOpen.delete(v):memoOpen.add(v); rr(); return; }
+  if((v=d('[data-ans]','ans'))){ ansOpen.has(v)?ansOpen.delete(v):ansOpen.add(v); rr(); return; }
+  if((v=d('[data-lv]','lv'))){ S.lv[v]=(getLv(v)+1)%3; save(); rr(); return; }
+  if((v=d('[data-hot]','hot'))){ S.hot[v]=!getHot(v); save(); rr(); return; }
+  if((v=d('[data-del]','del'))){
+    if(delArm!==v){ delArm=v; rr(); return; }
+    S.custom=S.custom.filter(c=>c.text!==v); S.favs=S.favs.filter(t=>t!==v); delete S.done[v]; delete S.memo[v]; delArm=''; save(); rr(); return;
+  }
+  if((v=d('[data-cat]','cat'))){ cat=v; renderQs(); const on=$('.cat.on'); if(on) on.scrollIntoView({inline:'center',block:'nearest'}); return; }
+  if((v=d('[data-flt]','flt'))){ flt=v; rr(); return; }
+  if((v=d('[data-qview]','qview'))){ qview=v; render(); scrollTo(0,0); return; }
+  if((v=d('[data-imode]','imode'))){ imode=v; rr(); return; }
+  if((v=d('[data-company]','company'))){ cType=v; rr(); return; }
+  if((v=d('[data-gstep]','gstep'))){
+    if(v==='next') gi=Math.min(gi+1,GEN.length); else if(v==='prev') gi=Math.max(gi-1,0); else gi=0;
+    render(); scrollTo(0,0); return;
+  }
+  if((v=d('[data-fact]','fact'))){
+    if(v==='random'){ fMain=shuffle(allQs())[0].text; newFollow(); } else newFollow();
+    rr(); return;
+  }
+  if((v=d('[data-pact]','pact'))){
+    if(v==='next'){ const others=allQs().filter(q=>q.text!==pMain); pMain=shuffle(others)[0].text; pThread=[]; }
+    else{ const unused=PRESS.filter(p=>!pThread.includes(p)); pThread.push(shuffle(unused.length?unused:PRESS)[0]); }
+    rr(); return;
+  }
+  if((v=d('[data-add]','add'))){
+    if(v==='open') addOpen=true;
+    else if(v==='cancel') addOpen=false;
+    else{
+      const text=$('#aq').value.trim();
+      if(!text){ $('#aq').focus(); return; }
+      if(!allQs().some(q=>q.text===text)){
+        S.custom.push({cat:$('#acat').value,text});
+        S.lv[text]=+$('#alv').value; S.hot[text]=$('#ahot').checked; save();
+      }
+      addOpen=false; cat='전체'; flt='all';
+    }
+    rr(); return;
+  }
+  if(g('[data-more]')){ tab='qs'; qview='list'; document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('on',x.dataset.tab==='qs')); render(); scrollTo(0,0); return; }
+  const tb=g('.tab');
+  if(tb){ tabScroll[tab]=scrollY; tab=tb.dataset.tab; document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('on',x===tb)); render(); scrollTo(0,tabScroll[tab]||0); }
+});
+document.addEventListener('input',e=>{
+  const m=e.target.closest('[data-memo-in]');
+  if(m){ const t=m.dataset.memoIn; if(m.value.trim()) S.memo[t]=m.value; else delete S.memo[t]; save(); }
+});
+document.addEventListener('change',e=>{
+  if(e.target.id==='fsel'){ fMain=e.target.value||null; if(fMain) newFollow(); rr(); }
+});
+$('#q').addEventListener('input',e=>{ query=e.target.value.trim(); render(); });
+
+
+/* ---------- 계정 동기화 (db: 내 계정 전용 문서) ---------- */
+let docRef=null, pushTimer=null, pushing=false, dirty=false, syncState='local';
+const FIELDS=['favs','done','memo','lv','hot','custom'];
+const body=()=>{ const o={_t:S._t||Date.now()}; FIELDS.forEach(k=>o[k]=S[k]); return JSON.parse(JSON.stringify(o)); };
+function schedulePush(){ dirty=true; if(!docRef) return; clearTimeout(pushTimer); pushTimer=setTimeout(push,700); }
+async function push(){
+  if(!docRef||pushing||!dirty) return;
+  pushing=true; dirty=false;
+  try{ await docRef.set(body()); setSync('synced'); }
+  catch(e){ dirty=true; setSync('error',(e&&(e.code||e.message))||''); }
+  pushing=false;
+  if(dirty) pushTimer=setTimeout(push,1500);
+}
+function setSync(v,detail){
+  syncState=v; const el=$('#sync'); if(!el) return;
+  const m={local:'동기화 연결 중…',synced:'☁ 계정에 저장됨 · 다른 브라우저에서도 보여요',error:'⚠ 저장 실패',off:'⚠ 이 브라우저에만 저장 중'};
+  const bad=(v==='error'||v==='off');
+  el.textContent=(m[v]||'')+(detail?' · '+detail:'')+(bad?' (눌러서 다시 시도)':'');
+  if(bad) el.setAttribute('data-bad',''); else el.removeAttribute('data-bad');
+}
+/* 처음 연결할 때: 이 브라우저에만 있던 기존 메모를 잃지 않게 합치기 */
+function mergeInto(local,remote){
+  const m={favs:[...new Set([...(remote.favs||[]),...(local.favs||[])])],
+    done:Object.assign({},local.done,remote.done),
+    memo:Object.assign({},local.memo,remote.memo),
+    lv:Object.assign({},local.lv,remote.lv),
+    hot:Object.assign({},local.hot,remote.hot),
+    custom:[...(remote.custom||[])]};
+  (local.custom||[]).forEach(c=>{ if(!m.custom.some(x=>x.text===c.text)) m.custom.push(c); });
+  Object.keys(local.memo||{}).forEach(t=>{ const a=(remote.memo||{})[t], b=local.memo[t]; if(a&&b&&a.trim()!==b.trim()) m.memo[t]=a+'\n---\n'+b; });
+  return m;
+}
+const typing=()=>{ const a=document.activeElement; return a&&(a.tagName==='TEXTAREA'||a.tagName==='INPUT'); };
+let unsub=null, initing=false;
+async function initSync(){
+  if(initing) return; initing=true;
+  try{
+    if(unsub){ try{unsub();}catch(e){} unsub=null; }
+    docRef=null; setSync('local');
+    if(typeof claude==='undefined'||!claude.use){ setSync('off','실행 환경을 찾을 수 없음'); return; }
+    const db=await claude.use('db');
+    if(!db){ setSync('off','db 연결 불가(로그인·권한 확인)'); return; }
+    const user=await claude.use('user');
+    const uid=user&&user.id?await user.id():null;
+    if(!uid){ setSync('off','계정 정보를 확인할 수 없음'); return; }
+    docRef=db.doc('data/users/'+uid+'/platform-interview');
+    let firstLink=true; try{ firstLink=!localStorage.getItem('platform-interview-linked-'+uid); }catch(e){}
+    let first=true;
+    unsub=docRef.onSnapshot(snap=>{
+      try{
+        if(snap.metadata&&snap.metadata.hasPendingWrites) return;
+        const r=snap.exists?snap.data():null;
+        if(first){
+          first=false;
+          if(r){
+            if(firstLink || !S._t){ Object.assign(S,mergeInto(S,r)); S._t=Date.now(); persistLocal(); dirty=true; }
+            else if((r._t||0)>(S._t||0)){ FIELDS.forEach(k=>S[k]=r[k]!==undefined?r[k]:S[k]); S._t=r._t; persistLocal(); }
+            else dirty=(r._t||0)<(S._t||0);
+          }else dirty=true;
+          try{ localStorage.setItem('platform-interview-linked-'+uid,'1'); }catch(e){}
+          if(!typing()) rr();
+          if(dirty) push(); else setSync('synced');
+          return;
+        }
+        if(r && (r._t||0)>(S._t||0) && !pushing){
+          FIELDS.forEach(k=>S[k]=r[k]!==undefined?r[k]:S[k]); S._t=r._t; persistLocal();
+          if(!typing()) rr();
+        }
+      }catch(e){ setSync('error',(e&&e.message)||''); }
+    },e=>setSync('off',(e&&(e.code||e.message))||'읽기 오류'));
+  }catch(e){ setSync('off',(e&&(e.code||e.message))||'연결 오류'); }
+  finally{ initing=false; }
+}
+document.addEventListener('click',e=>{ const el=e.target.closest('#sync[data-bad]'); if(el){ initSync(); } });
+document.addEventListener('visibilitychange',()=>{ if(document.hidden&&dirty){ clearTimeout(pushTimer); push(); } });
+
+document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('on',x.dataset.tab===tab));
+render();
+setSync("local");
+initSync();
+</script>
+
+</body></html>
