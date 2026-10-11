@@ -14,7 +14,7 @@ JD 1건을 입력받아 면접 카드를 만들고, 사용자 승인 후 면접 
 - 판정 스크립트: harness/scripts/judge.py (읽기 전용), 테스트: harness/tests/run_tests.py
 - 입력 문서: interview_harness_prd.md
 - 카드→HTML 매핑: harness/mapping.md
-- 반영 대상: 플랫폼 디자이너 면접 인덱스.html
+- 반영 대상: 프로덕트 디자이너 면접 인덱스.html
 
 ## 실행 루프
 1. 단계 시작 전 실행 폴더의 state.json을 읽는다. (기억에 의존하지 않는다.)

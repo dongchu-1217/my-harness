@@ -9,7 +9,7 @@
 | PRD | interview_harness_prd.md | 요구사항 원본 | |
 | 서비스 스토리 | harness/story-service.md | 판정 기준 (R1-A) | 사용자 관점 |
 | 작업 스토리 | harness/story-work.md | 작업 재료 (R1-B) | 둘을 섞지 않는다 |
-| 면접 인덱스 | 플랫폼 디자이너 면접 인덱스.html | 반영 대상 | 단일 HTML, 데이터는 JS 상수 |
+| 면접 인덱스 | 프로덕트 디자이너 면접 인덱스.html | 반영 대상 | 단일 HTML, 데이터는 JS 상수 |
 
 ## 면접 인덱스 HTML 현황 (확인된 사실만)
 

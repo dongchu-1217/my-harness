@@ -3,7 +3,7 @@
   "설명": "규칙 SSOT. 사람이 읽는 설명은 harness/gates.md, pipeline.md, artifacts.md. judge.py가 이 파일을 읽는다.",
   "경로": {
     "경험 카드": "harness/data/experiences.json",
-    "인덱스 HTML": "플랫폼 디자이너 면접 인덱스.html"
+    "인덱스 HTML": "프로덕트 디자이너 면접 인덱스.html"
   },
   "되돌아가기 상한": 2,
   "단계": ["S1", "S2", "S3", "S4", "S5"],

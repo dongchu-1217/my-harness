@@ -7,7 +7,7 @@
 - `harness/data/experiences.json`: 저장된 경험 카드 (공용, 실행 폴더 밖)
 - `harness/scripts/judge.py`: 판정 스크립트
 - `harness/tests/`: 테스트 전용 샘플 데이터
-- `플랫폼 디자이너 면접 인덱스.html` (루트): S5가 제자리 수정
+- `프로덕트 디자이너 면접 인덱스.html` (루트): S5가 제자리 수정
 - `harness/runs/{날짜}-{기업 영문 슬러그}/`: 실행 1회(JD 1건)당 폴더 (슬러그는 하네스가 기업명에서 생성)
 
 ## 실행 폴더 파일
